@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Linda Moonie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Fondo estrellado animado -->
+    <div class="background-container">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="clouds"></div>
+    </div>
+    
+    <div class="container">
+        <!-- Encabezado -->
+        <div class="header">
+            <h1>Para Mi Linda Moonie</h1>
+            <p>"Hola mi linda Moonie, me acordé de ti y quise hacer esto"</p>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <!-- Sección de imágenes -->
+            <div class="images-section">
+                <div class="image-container">
+                    <div class="image-card">
+                        <img src="dyadia1.jpeg" alt="Mi linda Moonie" onerror="this.src='https://via.placeholder.com/400x300/6a0dad/ffffff?text=Moonie+1'">
+                        <div class="image-title">Moonie - La más especial</div>
+                    </div>
+                    <div class="image-card">
+                        <img src="dyadia2.jpeg" alt="Mi linda Moonie" onerror="this.src='https://via.placeholder.com/400x300/8b0000/ffffff?text=Moonie+2'">
+                        <div class="image-title">Moonie - La más increíble</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección de mensajes -->
+            <div class="messages-section">
+                <div class="message-card">
+                    <h3>Eres Única</h3>
+                    <p>Moonie, cada vez que pienso en ti, mi corazón se llena de alegría. Eres la persona más especial que he conocido y cada día me sorprendes con tu bondad y tu forma de ser.</p>
+                </div>
+                
+                <div class="message-card">
+                    <h3>Tu Sonrisa</h3>
+                    <p>Tu sonrisa es como un rayo de sol en un día nublado. Tiene el poder de iluminar todo a su alrededor y hacer que cualquier problema se desvanezca. ¡Eres simplemente increíble!</p>
+                </div>
+                
+                <div class="message-card">
+                    <h3>Como un Pokémon Legendario</h3>
+                    <p>Si fueras un Pokémon, serías uno legendario. Eres única, especial y tienes un poder increíble para hacer feliz a los que te rodean. Eres más valiosa que cualquier carta rara.</p>
+                </div>
+                
+                <div class="message-card">
+                    <h3>Mi Inspiración</h3>
+                    <p>Cada día me inspiras a ser mejor persona. Tu fuerza, tu determinación y tu corazón tan grande son cualidades que admiro profundamente. Eres mi ejemplo a seguir.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Carta Pokémon personalizada -->
+        <div class="pokemon-card-section">
+            <div class="pokemon-card">
+                <div class="pokemon-header">
+                    <div class="pokemon-name">Moonie</div>
+                    <div class="pokemon-hp">HP ∞</div>
+                </div>
+                
+                <div class="pokemon-image">
+                    <img src="dyadia1.jpeg" alt="Moonie" onerror="this.innerHTML='Imagen de Moonie'">
+                </div>
+                
+                <div class="pokemon-description">
+                    Pokémon de tipo Hada/Luz. La más increíble y especial que existe.
+                </div>
+                
+                <div class="pokemon-ability">
+                    <strong>Habilidad Especial:</strong> Corazón Brillante - Ilumina la vida de todos a su alrededor con su bondad y alegría.
+                </div>
+                
+                <div class="pokemon-ability">
+                    <strong>Ataque Especial:</strong> Sonrisa Radiante - Un ataque tan poderoso que puede derretir cualquier corazón.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Eres la persona más maravillosa que conozco. Espero que esta pequeña muestra de cariño te haga sonreír tanto como tú me haces sonreír a mí cada día.</p>
+            <p>¡Te quiero mucho, Moonie!</p>
+        </div>
+    </div>
+
+    <script>
+        // Efecto de escritura para el primer mensaje
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstMessage = document.querySelector('.message-card:first-child p');
+            const originalText = firstMessage.textContent;
+            firstMessage.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < originalText.length) {
+                    firstMessage.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            // Iniciar efecto de escritura después de un breve retraso
+            setTimeout(typeWriter, 1000);
+            
+            // Efecto de aparición gradual para las tarjetas de mensaje
+            const messageCards = document.querySelectorAll('.message-card');
+            messageCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 800 + (index * 200));
+            });
+        });
+    </script>
+</body>
+</html>
